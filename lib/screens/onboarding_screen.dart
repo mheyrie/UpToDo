@@ -14,9 +14,10 @@ class _MyOnboardingState extends State<MyOnboarding> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Stack(
+        body: Stack( 
       children: [
-        PageView(controller: _controller, children: [
+        PageView(controller: _controller, 
+        children: [
           Container(
             color: Colors.black,
           ),
@@ -26,7 +27,8 @@ class _MyOnboardingState extends State<MyOnboarding> {
           Container(
             color: Colors.red,
           ),
-        ]),
+        ]
+        ),
 
         //dot indicator
         Container(
