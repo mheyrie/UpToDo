@@ -6,7 +6,13 @@ class OnboardingPage1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.blueGrey,
+      // color: Colors.blueGrey,
+      child: Center(
+          child: Text(
+        'Manage your Tasks',
+        style: TextStyle(
+            fontSize: 25, fontWeight: FontWeight.bold, color: Colors.white),
+      )),
     );
   }
 }

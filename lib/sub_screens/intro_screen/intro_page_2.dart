@@ -6,7 +6,11 @@ class OnboardingPage2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color:Colors.greenAccent,
+      // color:Colors.greenAccent,
+      child: Center(child:Text('Create daily routine',style: TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white),)),
     );
   }
 }
