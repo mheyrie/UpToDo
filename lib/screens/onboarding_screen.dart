@@ -14,17 +14,27 @@ class MyOnboarding extends StatefulWidget {
 class _MyOnboardingState extends State<MyOnboarding> {
   //controller to keep track of which page we are on
   final PageController _controller = PageController();
+
+  //keep track if we are on the last page
+  bool onLastPage = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
       body: Stack(
         children: [
-          PageView(controller: _controller, children: [
-            OnboardingPage1(),
-            OnboardingPage2(),
-            OnboardingPage3(),
-          ]),
+          PageView(
+              controller: _controller,
+              onPageChanged: (index) {
+                setState(() {
+                  onLastPage = (index == 2);
+                });
+              },
+              children: [
+                OnboardingPage1(),
+                OnboardingPage2(),
+                OnboardingPage3(),
+              ]),
 
           // Skip button at the top right
           Positioned(
@@ -45,7 +55,7 @@ class _MyOnboardingState extends State<MyOnboarding> {
           ),
           // Dot Indicator (keeping it in its original position)
           Positioned(
-            top: 260, 
+            top: 260,
             left: 0,
             right: 0,
             child: Center(
@@ -82,7 +92,7 @@ class _MyOnboardingState extends State<MyOnboarding> {
                     );
                   },
                   child: Text(
-                    "Back",
+                    "BACK",
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 16,
@@ -90,7 +100,8 @@ class _MyOnboardingState extends State<MyOnboarding> {
                   ),
                 ),
 
-                // Next button
+                // Next or done button
+                onLastPage?
                 GestureDetector(
                   onTap: () {
                     _controller.nextPage(
@@ -99,7 +110,21 @@ class _MyOnboardingState extends State<MyOnboarding> {
                     );
                   },
                   child: Text(
-                    "Next",
+                    "DONE",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ):GestureDetector(
+                  onTap: () {
+                    _controller.nextPage(
+                      duration: Duration(milliseconds: 500),
+                      curve: Curves.easeIn,
+                    );
+                  },
+                  child: Text(
+                    "NEXT",
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 16,
