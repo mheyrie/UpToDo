@@ -29,7 +29,21 @@ class _MyOnboardingState extends State<MyOnboarding> {
         ]),
 
         //dot indicator
-        Container(child: SmoothPageIndicator(controller: _controller, count: 3))
+        Container(
+            alignment: Alignment(0, 0),
+            child: SmoothPageIndicator(
+              controller: _controller,
+              count: 3,
+              effect: SlideEffect(
+                  spacing: 8.0,
+                  radius: 4.0,
+                  dotWidth: 28.0,
+                  dotHeight: 6.0,
+                  // paintStyle: PaintingStyle.stroke,
+                  strokeWidth: 1.5,
+                  dotColor: Colors.grey,
+                  activeDotColor: Colors.white),
+            ))
       ],
     ));
   }
