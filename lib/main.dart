@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:uptodo/screens/home_screen.dart';
 import 'package:uptodo/screens/splash_screen.dart';
 
 void main() {
@@ -13,12 +12,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.deepPurple,
-        scaffoldBackgroundColor: Colors.black,
-      ),
-      home: SplashScreen(),
-    );
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          primarySwatch: Colors.deepPurple,
+          scaffoldBackgroundColor: Colors.black,
+        ),
+        home: SplashScreen());
   }
 }
