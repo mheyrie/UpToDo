@@ -58,12 +58,12 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 15),
-                ElevatedButton(
+                OutlinedButton(
                   onPressed: () {
                     Navigator.pushNamed(context, '/register');
                   },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.grey[800], 
+                  style: OutlinedButton.styleFrom(
+                    side: const BorderSide(color: Colors.deepPurple, width: 2),
                     minimumSize: const Size(double.infinity, 50),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(5),
