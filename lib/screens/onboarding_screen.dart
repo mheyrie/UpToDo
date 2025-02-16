@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:uptodo/screens/home_screen.dart';
 import 'package:uptodo/sub_screens/intro_screen/intro_page_1.dart';
 import 'package:uptodo/sub_screens/intro_screen/intro_page_2.dart';
 import 'package:uptodo/sub_screens/intro_screen/intro_page_3.dart';
@@ -42,12 +43,14 @@ class _MyOnboardingState extends State<MyOnboarding> {
             left: 20,
             child: GestureDetector(
               onTap: () {
-                Navigator.pushNamed(context, '/home');
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return HomeScreen();
+                }));
               },
               child: Text(
                 "SKIP",
                 style: TextStyle(
-                    color: Colors.white,
+                    color: Colors.grey,
                     fontSize: 16,
                     fontWeight: FontWeight.bold),
               ),
@@ -101,36 +104,37 @@ class _MyOnboardingState extends State<MyOnboarding> {
                 ),
 
                 // Next or done button
-                onLastPage?
-                GestureDetector(
-                  onTap: () {
-                    _controller.nextPage(
-                      duration: Duration(milliseconds: 500),
-                      curve: Curves.easeIn,
-                    );
-                  },
-                  child: Text(
-                    "DONE",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ):GestureDetector(
-                  onTap: () {
-                    _controller.nextPage(
-                      duration: Duration(milliseconds: 500),
-                      curve: Curves.easeIn,
-                    );
-                  },
-                  child: Text(
-                    "NEXT",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
+                onLastPage
+                    ? GestureDetector(
+                        onTap: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) {
+                            return HomeScreen();
+                          }));
+                        },
+                        child: Text(
+                          "DONE",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      )
+                    : GestureDetector(
+                        onTap: () {
+                          _controller.nextPage(
+                            duration: Duration(milliseconds: 500),
+                            curve: Curves.easeIn,
+                          );
+                        },
+                        child: Text(
+                          "NEXT",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
               ],
             ),
           ),
