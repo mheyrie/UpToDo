@@ -58,7 +58,7 @@ class _MyOnboardingState extends State<MyOnboarding> {
           ),
           // Dot Indicator (keeping it in its original position)
           Positioned(
-            top: 260,
+            top: 320,
             left: 0,
             right: 0,
             child: Center(

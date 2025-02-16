@@ -19,9 +19,6 @@ class OnboardingPage1 extends StatelessWidget {
               fit: BoxFit.contain,
             ),
           ),
-
-          const SizedBox(height: 50), // Space below the image
-
           // Texts in the center
           Expanded(
             child: Column(
