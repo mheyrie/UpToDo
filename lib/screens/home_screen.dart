@@ -8,12 +8,15 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         // title: const Text('Home Screen'),
-        backgroundColor: Colors.black, // Sets the app bar background to black
-        elevation: 0, // Removes the shadow for a clean look
+        backgroundColor: Colors.black, 
+        elevation: 0, 
         iconTheme: IconThemeData(color: Colors.white),
       ),
       body: const Center(
-        child: Text('Welcome to the Home Screen!'),
+        child: Text(
+          'Welcome to the Home Screen!',
+          style: TextStyle(color: Colors.white),
+        ),
       ),
     );
   }

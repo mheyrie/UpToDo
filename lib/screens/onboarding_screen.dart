@@ -120,13 +120,19 @@ class _MyOnboardingState extends State<MyOnboarding> {
                               fontWeight: FontWeight.bold),
                         ),
                       )
-                    : GestureDetector(
-                        onTap: () {
+                    : ElevatedButton(
+                        onPressed: () {
                           _controller.nextPage(
                             duration: Duration(milliseconds: 500),
                             curve: Curves.easeIn,
                           );
                         },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.purple[400], 
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                        ),
                         child: Text(
                           "NEXT",
                           style: TextStyle(
